@@ -1,0 +1,19 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model Notes {
+    id   String @id @default(cuid())
+    text String
+}
+
+model Todo {
+    id          String  @id @default(cuid())
+    description String
+    done        Boolean @default(false)
+}
